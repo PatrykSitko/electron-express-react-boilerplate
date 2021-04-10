@@ -1,5 +1,5 @@
 {
-  "name": "desktop-server",
+  "name": "electron-react-express-boilerplate",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
@@ -7,7 +7,7 @@
   "proxy": "http://localhost:3001",
   "module": "",
   "build": {
-    "appId": "be.patryksitko.electron-react-boilerplate",
+    "appId": "be.patryksitko.electron-react-express-boilerplate",
     "win": {
       "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
     },
