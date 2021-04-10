@@ -1,0 +1,16 @@
+{
+  "state": {
+    "title": "react electron boilerplate",
+    "window": {
+      "inner": null,
+      "outer": null
+    },
+    "GUUID": null
+  },
+  "router": {
+    "pathname": "/",
+    "search": "",
+    "queries": {},
+    "hash": ""
+  }
+}

@@ -1,0 +1,4 @@
+export const WINDOW_RESIZED = "WINDOW_RESIZED";
+export const SET_SYSTEM_GUUID = "SET_SYSTEM_GUUID";
+
+export default [WINDOW_RESIZED, SET_SYSTEM_GUUID];
