@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "function-paren-newline": 0,
     "no-eval": 0,
     "indent": 0,
     "linebreak-style": ["error", "unix"],

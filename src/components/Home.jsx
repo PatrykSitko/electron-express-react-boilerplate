@@ -1,7 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 
-function Home() {
-  return <div>home</div>;
+const mapStateToProps = ({ state: { title } }) => ({ title });
+function Home({ title }) {
+  return <div>{title}</div>;
 }
 
-export default Home;
+export default connect(mapStateToProps)(Home);
