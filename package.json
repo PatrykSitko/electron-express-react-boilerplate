@@ -3,19 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
-  "main": "src/start.js",
+  "main": "src/electron.js",
   "proxy": "http://localhost:3001",
   "module": "",
   "build": {
     "appId": "be.patryksitko.electron-react-express-boilerplate",
-    "win": {
-      "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
-    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      {
+        "from": "src",
+        "to": "build",
+        "filter": "**/*"
+      }
+    ],
     "directories": {
       "buildResources": "public"
     }
   },
   "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/register": "^7.13.8",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -23,7 +31,7 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "debug": "^4.3.1",
-    "electron": "^11.1.1",
+    "electron-is-dev": "^2.0.0",
     "electron-log": "^4.3.1",
     "eslint": "^7.16.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -46,15 +54,15 @@
   },
   "scripts": {
     "start": "nf start -p 3000",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-app-rewired eject",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
     "electron": "electron .",
     "electron-start": "node src/start-react",
     "react-start": "cross-env BROWSER=none react-scripts start",
     "express-start": "node src/express/bin/www.mjs",
-    "pack": "build --dir",
-    "dist": "npm run build && build",
+    "pack": "electron-builder --dir",
+    "dist": "npm run build && electron-builder",
     "postinstall": "install-app-deps"
   },
   "eslintConfig": {
@@ -76,6 +84,7 @@
     ]
   },
   "devDependencies": {
+    "electron": "^11.1.1",
     "electron-builder": "^22.9.1"
   }
 }
