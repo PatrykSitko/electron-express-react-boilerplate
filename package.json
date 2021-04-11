@@ -61,8 +61,8 @@
     "electron-start": "node src/start-react",
     "react-start": "cross-env BROWSER=none react-scripts start",
     "express-start": "node src/express/bin/www.mjs",
-    "pack": "electron-builder --dir",
-    "dist": "npm run build && electron-builder",
+    "pack": "electron-builder build --dir",
+    "dist": "npm run build && electron-builder build",
     "postinstall": "install-app-deps"
   },
   "eslintConfig": {
