@@ -4,11 +4,11 @@
  * Module dependencies.
  */
 
-import debugr from "debug";
-import http from "http";
+const debugr = require("debug");
+const http = require("http");
 
 // eslint-disable-next-line import/no-unresolved
-import app from "../app.mjs";
+const app = require("../app.js");
 
 /**
  * Get port from environment and store in Express.

@@ -9,13 +9,13 @@ function dispatch({ type, payload }) {
   dispatcher[type] = payload;
 }
 
-export function setStore(value) {
+function setStore(value) {
   store = value;
 }
 
-export function getDispatcher() {
+function getDispatcher() {
   return dispatcher;
   dispatcher = {};
 }
 
-export default { getStore, dispatch };
+module.exports = { getStore, dispatch, setStore, getDispatcher };

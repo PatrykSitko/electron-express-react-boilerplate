@@ -1,12 +1,13 @@
-import express from "express";
-import { setStore, getDispatcher } from "../index.mjs";
+const express = require("express");
+const { setStore, getDispatcher } = require("../index.js");
 
 const router = express.Router();
 
 router.post("/actions", (req, res) => {
   const { state, router } = req.body;
   setStore({ state, router });
+  console.log(state);
   res.json(getDispatcher());
 });
 
-export default router;
+module.exports = router;
