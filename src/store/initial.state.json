@@ -1,5 +1,6 @@
 {
   "state": {
+    "required!.initial-path": "/",
     "title": "electron react express boilerplate",
     "window": {
       "inner": null,
