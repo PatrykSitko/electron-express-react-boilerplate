@@ -4,6 +4,10 @@ const url = require("url");
 
 let mainWindow = null;
 
+const isDev = process.env.APP_DEV
+  ? process.env.APP_DEV.trim() == "true"
+  : false;
+
 app.on("ready", () => {
   mainWindow = new BrowserWindow({
     width: 800,
@@ -11,11 +15,15 @@ app.on("ready", () => {
     webPreferences: {
       nodeIntegration: true,
     },
+    webSecurity: false,
   });
   mainWindow.loadURL(
     process.env.ELECTRON_START_URL ||
       url.format({
-        pathname: path.join(__dirname, "./../public/index.html"),
+        pathname: path.join(
+          __dirname,
+          isDev ? "./../public/index.html" : "./../build/index.html",
+        ),
         protocol: "file:",
         slashes: true,
       }),
