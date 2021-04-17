@@ -14,6 +14,7 @@ app.on("ready", () => {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
+      preload: path.join(app.getAppPath(), "electron/preload.js"),
     },
     webSecurity: false,
   });
