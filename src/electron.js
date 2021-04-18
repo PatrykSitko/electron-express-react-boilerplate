@@ -43,6 +43,7 @@ app.on("ready", () => {
     });
   }
   mainWindow.on("closed", () => {
+    www.server.close(console.error);
     mainWindow = null;
   });
 });
