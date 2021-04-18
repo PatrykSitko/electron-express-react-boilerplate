@@ -2,6 +2,8 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const url = require("url");
 const www = require("./express/bin/www");
+const findUnusedPort = require("./express/findUnusedPort");
+
 let mainWindow = null;
 
 const isDev = process.env.APP_DEV
@@ -31,8 +33,10 @@ app.on("ready", () => {
       }),
   );
   if (!isDev) {
-    www.setPort(www.defaultPort);
-    www.server.listen(www.defaultPort);
+    findUnusedPort(www.defaultPort).then((port) => {
+      www.setPort(port);
+      www.server.listen(port);
+    });
   }
   mainWindow.on("closed", () => {
     mainWindow = null;
