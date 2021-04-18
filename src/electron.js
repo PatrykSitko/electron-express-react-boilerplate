@@ -1,7 +1,7 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const url = require("url");
-
+const www = require("./express/bin/www");
 let mainWindow = null;
 
 const isDev = process.env.APP_DEV
@@ -14,7 +14,8 @@ app.on("ready", () => {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      preload: path.join(app.getAppPath(), "electron/preload.js"),
+      nodeIntegrationInWorker: true,
+      preload: path.join(__dirname, "./electron/preload.js"),
     },
     webSecurity: false,
   });
@@ -29,6 +30,10 @@ app.on("ready", () => {
         slashes: true,
       }),
   );
+  if (!isDev) {
+    www.setPort(www.defaultPort);
+    www.server.listen(www.defaultPort);
+  }
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
