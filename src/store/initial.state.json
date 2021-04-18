@@ -1,5 +1,6 @@
 {
   "state": {
+    "port": 3001,
     "required!.initial-path": "/",
     "title": "electron react express boilerplate",
     "window": {

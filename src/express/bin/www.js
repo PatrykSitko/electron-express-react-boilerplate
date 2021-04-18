@@ -6,6 +6,7 @@
 
 const debugr = require("debug");
 const http = require("http");
+const { getStore, dispatch } = require("../store");
 
 // eslint-disable-next-line import/no-unresolved
 const app = require("../app.js");
@@ -70,6 +71,8 @@ if (isDev) {
 }
 
 module.exports = {
+  getStore,
+  dispatch,
   app,
   setPort: (port) => app.set("port", port),
   server,
