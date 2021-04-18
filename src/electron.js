@@ -38,6 +38,7 @@ app.on("ready", () => {
     findUnusedPort(www.defaultPort).then((port) => {
       www.dispatch(setPort(port));
       www.app.use(cors({ origin: `http://localhost:${port}` }));
+      www.setPort(port);
       www.server.listen(port);
     });
   }

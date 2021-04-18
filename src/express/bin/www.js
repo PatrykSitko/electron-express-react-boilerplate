@@ -74,10 +74,7 @@ module.exports = {
   getStore,
   dispatch,
   app,
-  setPort: (port) => {
-    app.set("port", port);
-    return true;
-  },
+  setPort: (port) => app.set("port", port),
   server,
   defaultPort: 3001,
 };
