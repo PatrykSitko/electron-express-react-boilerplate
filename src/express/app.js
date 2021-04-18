@@ -5,15 +5,9 @@ const cors = require("cors");
 const storeRouter = require("./store/actions/dispatcher.js");
 const store = require("./store/index.js");
 
-const isDev = process.env.APP_DEV
-  ? process.env.APP_DEV.trim() == "true"
-  : false;
-
 const app = express();
 
-if (isDev) {
-  app.use(cors({ origin: "http://localhost:3001" }));
-}
+app.use(cors({ origin: "http://localhost:3100" }));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
