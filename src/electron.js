@@ -8,9 +8,7 @@ const setPort = require("./express/store/actions/set/port");
 
 let mainWindow = null;
 
-const isDev = process.env.APP_DEV
-  ? process.env.APP_DEV.trim() == "true"
-  : false;
+const isDev = require("electron-is-dev");
 
 app.on("ready", () => {
   mainWindow = new BrowserWindow({
