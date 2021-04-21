@@ -60,7 +60,7 @@
     "electron": "electron .",
     "electron-start": "node src/start-react",
     "react-start": "cross-env BROWSER=none react-scripts start",
-    "express-start": "node src/express/bin/www.js",
+    "express-start": "node src/express/bin/www.js dev-mode",
     "pack": "electron-builder build --dir",
     "dist": "npm run build && electron-builder build",
     "postinstall": "install-app-deps"

@@ -35,9 +35,7 @@ function onListening() {
  */
 server.on("listening", onListening);
 
-const isDev = process.env.APP_DEV
-  ? process.env.APP_DEV.trim() == "true"
-  : false;
+const isDev = process.argv.slice(2)[0] == "dev-mode";
 
 if (isDev) {
   const port = "3001";
